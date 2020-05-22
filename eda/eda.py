@@ -1,8 +1,3 @@
-# -----------------shruti-code--------------------------------
-# df=pd.read_csv("ICMR.csv")
-# fig = px.bar(df, x='Date', y='Increase per day', color='Increase per day', height=600, title="New positive cases everyday")
-# plotly.offline.plot(fig, output_type='div')
-
 import plotly
 import plotly.figure_factory as ff 
 import plotly.express as px

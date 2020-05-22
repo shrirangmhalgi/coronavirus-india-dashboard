@@ -1,5 +1,3 @@
-from scrapper.indian_scrapper import get_api_data
-
 from flask import Flask, render_template
 app = Flask(__name__)
 
