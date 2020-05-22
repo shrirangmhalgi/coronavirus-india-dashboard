@@ -65,5 +65,5 @@ def index():
                             statewise_recovered_cases_piechart_top5=statewise_recovered_cases_piechart_top5)
 
 if __name__ == "__main__":
-    # app.jinja_env.cache = {}
+    app.jinja_env.cache = {}
     app.run(threaded=True)
