@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <title>Covid19 Tracker</title>
+
+</head>
+
+<body id="mybody">
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+        <label for="navi-toggle" class="navigation__button">
+          <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>01 </span>Live Updates</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>02 </span>More Stats</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>03 </span>Death Rates</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>04 </span>Incubation</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>05 </span>Symptoms</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header class="header">
+        <div class="header__logo-box">
+            <!-- <img src="img/logo-white.png" alt="Logo"> -->
+            <p class="header__logo">Covid 19 Tracker</p>
+        </div>
+
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">covid19</span>
+                <span class="heading-primary--sub" id="heading-primary--sub"></span>
+
+                <script>
+                    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                    date = new Date()
+                    today = date.getDate() + "th " + months[date.getMonth()] + " " + date.getFullYear()
+                    document.getElementById("heading-primary--sub").innerHTML = "live updates-" + today
+                </script>
+            </h1>
+
+            <a href="#" class="btn btn--white btn--animated js--scroll-to-features">Discover more</a>
+        </div>
+    </header>
+    <section class="section-features js--section-features">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Coronavirus cases overview - India
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <h1 class="feature-box__icon heading-secondary-1">{{overview["Confirmed Cases"]}}</h1>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Confirmed Cases</h3>
+                    <p class="feature-box__text">
+                        Count of Confirmed Coronavirus Cases in India
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <h1 class="feature-box__icon heading-secondary-1">{{overview["Active Cases"]}}</h1>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Active Cases</h3>
+                    <p class="feature-box__text">
+                        Count of Active Coronavirus Cases in India
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <h1 class="feature-box__icon heading-secondary-1">{{overview["Recovered"]}}</h1>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Recovered Cases</h3>
+                    <p class="feature-box__text">
+                        Count of Recovered Coronavirus Cases in India
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <h1 class="feature-box__icon heading-secondary-1">{{overview["Deaths"]}}</h1>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Deaths</h3>
+                    <p class="feature-box__text">
+                        Count of number of Deaths Cases in India
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-about js--section-about">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                analysis of Active, Deaths and Recovered Cases
+            </h2>
+        </div>
+
+        <div class="row1 row-1-cr">
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The first case of Corona virus in India was observed to be on 30<sup>th</sup> January 2020. Since then there has been an additive growth in cases all across the country
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Active Cases.
+                </h3>
+                <p class="paragraph">
+                    The graph in Green shows the number of Active Cases in India till date.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Recoveries.
+                </h3>
+                <p class="paragraph">
+                    The graph in Orange shows the number of Recovered Cases in India till date.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Deaths.
+                </h3>
+                <p class="paragraph">
+                    The graph in Blue shows the number of Deaths in India till date.
+                </p>
+
+            </div>
+
+            <div class="col-1-of-2">
+                {{stacked_data_bar_chart | safe}}
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // Scroll on button
+        $('.js--scroll-to-features').click(function() {
+            $('html, body').animate({
+                scrollTop: $('.js--section-about').offset().top
+            }, 1500);
+        });
+    </script>
+
+    <section class="section-about-1">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                analysis of Daily Active, Deaths and Recovered Cases
+            </h2>
+        </div>
+
+        <div class="row1 row-1-c">
+            <div class="col-1-of-2">
+                {{line_graph | safe}}
+            </div>
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The number of daily active cases, deaths and recoveries is increasing consistently since 30<sup>th</sup> January 2020.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Active Cases.
+                </h3>
+                <p class="paragraph">
+                    The graph in Green shows the number of Daily Active Cases in India till date.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Recoveries.
+                </h3>
+                <p class="paragraph">
+                    The graph in Orange shows the number of Daily Recovered Cases in India till date.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Deaths.
+                </h3>
+                <p class="paragraph">
+                    The graph in Blue shows the number of Daily Deaths in India till date.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-about-2">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Statewise Count of People
+            </h2>
+        </div>
+
+        <div style="max-width: 80%; margin: 0 auto;">
+            {{tablular_data | safe}}
+        </div>
+
+    </section>
+
+    <section class="section-about-1">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Statewise analysis of Coronavirus Cases
+            </h2>
+        </div>
+
+        <div class="row1 row-1-cr">
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The graph shows Total number of Confirmed patients per State since 30<sup>th</sup> January 2020.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Confirmed Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 3 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_confirmed_cases_barplot_t3b3_list[0]}}</li>
+                        <li>{{statewise_confirmed_cases_barplot_t3b3_list[1]}}</li>
+                        <li>{{statewise_confirmed_cases_barplot_t3b3_list[2]}}</li>
+                    </ul>
+                </p>
+
+                <p class="paragraph">
+                    The top 3 states reporting lowest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_confirmed_cases_barplot_t3b3_list[3]}}</li>
+                        <li>{{statewise_confirmed_cases_barplot_t3b3_list[4]}}</li>
+                        <li>{{statewise_confirmed_cases_barplot_t3b3_list[5]}}</li>
+                    </ul>
+                </p>
+
+            </div>
+
+            <div class="col-1-of-2">
+                {{statewise_confirmed_cases_barplot | safe}}
+            </div>
+        </div>
+
+        <div class="row1 row-1-c">
+            <div class="col-1-of-2">
+                {{statewise_active_cases_barplot | safe}}
+            </div>
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The graph shows Total number of Active patients per State since 30<sup>th</sup> January 2020.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Active Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 3 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_active_cases_barplot_t3b3_list[0]}}</li>
+                        <li>{{statewise_active_cases_barplot_t3b3_list[1]}}</li>
+                        <li>{{statewise_active_cases_barplot_t3b3_list[2]}}</li>
+                    </ul>
+                </p>
+
+                <p class="paragraph">
+                    The top 3 states reporting lowest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_active_cases_barplot_t3b3_list[3]}}</li>
+                        <li>{{statewise_active_cases_barplot_t3b3_list[4]}}</li>
+                        <li>{{statewise_active_cases_barplot_t3b3_list[5]}}</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="row1 row-1-cr">
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The graph shows Total number of Recovered patients per State since 30<sup>th</sup> January 2020.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Recovered Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 3 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_recovered_cases_barplot_t3b3_list[0]}}</li>
+                        <li>{{statewise_recovered_cases_barplot_t3b3_list[1]}}</li>
+                        <li>{{statewise_recovered_cases_barplot_t3b3_list[2]}}</li>
+                    </ul>
+                </p>
+
+                <p class="paragraph">
+                    The top 3 states reporting lowest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_recovered_cases_barplot_t3b3_list[3]}}</li>
+                        <li>{{statewise_recovered_cases_barplot_t3b3_list[4]}}</li>
+                        <li>{{statewise_recovered_cases_barplot_t3b3_list[5]}}</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="col-1-of-2">
+                {{statewise_recovered_cases_barplot | safe}}
+            </div>
+        </div>
+
+        <div class="row1 row-1-c">
+            <div class="col-1-of-2">
+                {{statewise_death_cases_barplot | safe}}
+            </div>
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The graph shows Total number of Death patients per State since 30<sup>th</sup> January 2020.
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Death Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 3 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_death_cases_barplot_t3b3_list[0]}}</li>
+                        <li>{{statewise_death_cases_barplot_t3b3_list[1]}}</li>
+                        <li>{{statewise_death_cases_barplot_t3b3_list[2]}}</li>
+                    </ul>
+                </p>
+
+                <p class="paragraph">
+                    The top 3 states reporting lowest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_death_cases_barplot_t3b3_list[3]}}</li>
+                        <li>{{statewise_death_cases_barplot_t3b3_list[4]}}</li>
+                        <li>{{statewise_death_cases_barplot_t3b3_list[5]}}</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-about-2">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Contribution of top 5 states
+            </h2>
+        </div>
+
+        <div class="row1 row-1-cr">
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The Pie Chart shows contribution of top 5 states in India
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Confirmed Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 5 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_confirmed_cases_piechart_top5[0]}}</li>
+                        <li>{{statewise_confirmed_cases_piechart_top5[1]}}</li>
+                        <li>{{statewise_confirmed_cases_piechart_top5[2]}}</li>
+                        <li>{{statewise_confirmed_cases_piechart_top5[3]}}</li>
+                        <li>{{statewise_confirmed_cases_piechart_top5[4]}}</li>
+                    </ul>
+                </p>
+
+            </div>
+
+            <div class="col-1-of-2">
+                {{statewise_confirmed_cases_piechart | safe}}
+            </div>
+        </div>
+
+        <div class="row1 row-1-c">
+            <div class="col-1-of-2">
+                {{statewise_active_cases_piechart | safe}}
+            </div>
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The Pie Chart shows contribution of top 5 states in India
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Active Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 5 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_active_cases_piechart_top5[0]}}</li>
+                        <li>{{statewise_active_cases_piechart_top5[1]}}</li>
+                        <li>{{statewise_active_cases_piechart_top5[2]}}</li>
+                        <li>{{statewise_active_cases_piechart_top5[3]}}</li>
+                        <li>{{statewise_active_cases_piechart_top5[4]}}</li>
+                    </ul>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row1 row-1-cr">
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The Pie Chart shows contribution of top 5 states in India
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Recovered Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 5 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_recovered_cases_piechart_top5[0]}}</li>
+                        <li>{{statewise_recovered_cases_piechart_top5[1]}}</li>
+                        <li>{{statewise_recovered_cases_piechart_top5[2]}}</li>
+                        <li>{{statewise_recovered_cases_piechart_top5[3]}}</li>
+                        <li>{{statewise_recovered_cases_piechart_top5[4]}}</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="col-1-of-2">
+                {{statewise_recovered_cases_piechart | safe}}
+            </div>
+        </div>
+
+        <div class="row1 row-1-c">
+            <div class="col-1-of-2">
+                {{statewise_death_cases_piechart | safe}}
+            </div>
+
+            <div class="col-1-of-2">
+                <p class="paragraph">
+                    The Pie Chart shows contribution of top 5 states in India
+                </p>
+
+                <h3 class="heading-tertiary-1 u-margin-bottom-small">
+                    Death Cases.
+                </h3>
+
+                <p class="paragraph">
+                    The top 5 states reporting highest number of cases are :
+                    <ul class="paragraph" style="margin-left: 2rem; margin-top: -2.5rem;">
+                        <li>{{statewise_death_cases_piechart_top5[0]}}</li>
+                        <li>{{statewise_death_cases_piechart_top5[1]}}</li>
+                        <li>{{statewise_death_cases_piechart_top5[2]}}</li>
+                        <li>{{statewise_death_cases_piechart_top5[3]}}</li>
+                        <li>{{statewise_death_cases_piechart_top5[4]}}</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__logo-wrapper">
+            <div class="footer__logo-box">
+                <span class="footer__logo">Covid 19 Tracker</span>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1-of-2">
+                <div class="footer__navigation">
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Live Updates</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">More Stats</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Death Rates</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Incubation</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">symptoms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1-of-2">
+                <p class="footer__copyright">
+                    Developed by <a href="https://www.github.com/shrirangmhalgi" class="footer__link">Shrirang Mhalgi</a> as part of <a href="https://mohfw.gov.in/" class="footer__link">COVID 19</a> project for <a href="https://www.aimlcommunity.com"
+                        class="footer__link">AIML COMMUNITY</a> on 20<sup>th</sup> May 2020. Copyright &copy; Shrirang Mhalgi. </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

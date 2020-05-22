@@ -1,0 +1,4 @@
+.header {
+    background-image: linear-gradient(to right bottom, rgba(232, 65, 24, 0.5), rgba(40, 180, 133, 0.8)), url("../img/age-details-hero-small.jpg");
+    background-position: top;
+}
