@@ -16,29 +16,9 @@
 </head>
 
 <body id="mybody">
-    <div class="navigation">
-        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-
-        <label for="navi-toggle" class="navigation__button">
-          <span class="navigation__icon">&nbsp;</span>
-        </label>
-
-        <div class="navigation__background">&nbsp;</div>
-
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>01 </span>Live Updates</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>02 </span>More Stats</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>03 </span>Death Rates</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>04 </span>Incubation</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>05 </span>Symptoms</a></li>
-            </ul>
-        </nav>
-    </div>
 
     <header class="header">
         <div class="header__logo-box">
-            <!-- <img src="img/logo-white.png" alt="Logo"> -->
             <p class="header__logo">Covid 19 Tracker</p>
         </div>
 
@@ -71,7 +51,7 @@
                     <h1 class="feature-box__icon heading-secondary-1">{{overview["Confirmed Cases"]}}</h1>
                     <h3 class="heading-tertiary u-margin-bottom-small">Confirmed Cases</h3>
                     <p class="feature-box__text">
-                        Count of Confirmed Coronavirus Cases in India
+                        Count of confirmed coronavirus cases in India.
                     </p>
                 </div>
             </div>
@@ -81,7 +61,7 @@
                     <h1 class="feature-box__icon heading-secondary-1">{{overview["Active Cases"]}}</h1>
                     <h3 class="heading-tertiary u-margin-bottom-small">Active Cases</h3>
                     <p class="feature-box__text">
-                        Count of Active Coronavirus Cases in India
+                        Count of active coronavirus cases in India.
                     </p>
                 </div>
             </div>
@@ -91,7 +71,7 @@
                     <h1 class="feature-box__icon heading-secondary-1">{{overview["Recovered"]}}</h1>
                     <h3 class="heading-tertiary u-margin-bottom-small">Recovered Cases</h3>
                     <p class="feature-box__text">
-                        Count of Recovered Coronavirus Cases in India
+                        Count of recovered coronavirus cases in India.
                     </p>
                 </div>
             </div>
@@ -101,7 +81,7 @@
                     <h1 class="feature-box__icon heading-secondary-1">{{overview["Deaths"]}}</h1>
                     <h3 class="heading-tertiary u-margin-bottom-small">Deaths</h3>
                     <p class="feature-box__text">
-                        Count of number of Deaths Cases in India
+                        Count of number of deaths cases in India.
                     </p>
                 </div>
             </div>
@@ -118,28 +98,28 @@
         <div class="row1 row-1-cr">
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The first case of Corona virus in India was observed to be on 30<sup>th</sup> January 2020. Since then there has been an additive growth in cases all across the country
+                    The first case of coronavirus in India was observed on 30<sup>th</sup> January 2020. Since then there has been rise in cases all across the country.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
                     Active Cases.
                 </h3>
                 <p class="paragraph">
-                    The graph in Green shows the number of Active Cases in India till date.
+                    The graph in green shows the number of active cases in India till date.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
                     Recoveries.
                 </h3>
                 <p class="paragraph">
-                    The graph in Orange shows the number of Recovered Cases in India till date.
+                    The graph in orange shows the number of recovered cases in India till date.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
                     Deaths.
                 </h3>
                 <p class="paragraph">
-                    The graph in Blue shows the number of Deaths in India till date.
+                    The graph in blue shows the number of deaths in India till date.
                 </p>
 
             </div>
@@ -152,7 +132,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        // Scroll on button
         $('.js--scroll-to-features').click(function() {
             $('html, body').animate({
                 scrollTop: $('.js--section-about').offset().top
@@ -174,28 +153,28 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The number of daily active cases, deaths and recoveries is increasing consistently since 30<sup>th</sup> January 2020.
+                    The number of daily active cases, deaths and recoveries is increasing steadily since 30<sup>th</sup> January 2020.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
                     Active Cases.
                 </h3>
                 <p class="paragraph">
-                    The graph in Green shows the number of Daily Active Cases in India till date.
+                    The graph in green shows the number of daily active cases in India till date.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
                     Recoveries.
                 </h3>
                 <p class="paragraph">
-                    The graph in Orange shows the number of Daily Recovered Cases in India till date.
+                    The graph in orange shows the number of daily recovered cases in India till date.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
                     Deaths.
                 </h3>
                 <p class="paragraph">
-                    The graph in Blue shows the number of Daily Deaths in India till date.
+                    The graph in blue shows the number of daily deaths in India till date.
                 </p>
 
             </div>
@@ -226,7 +205,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The graph shows Total number of Confirmed patients per State since 30<sup>th</sup> January 2020.
+                    The graph shows total number of confirmed patients per state since 30<sup>th</sup> January 2020.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -265,7 +244,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The graph shows Total number of Active patients per State since 30<sup>th</sup> January 2020.
+                    The graph shows total number of active patients per state since 30<sup>th</sup> January 2020.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -296,7 +275,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The graph shows Total number of Recovered patients per State since 30<sup>th</sup> January 2020.
+                    The graph shows total number of recovered patients per state since 30<sup>th</sup> January 2020.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -334,7 +313,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The graph shows Total number of Death patients per State since 30<sup>th</sup> January 2020.
+                    The graph shows total number of death patients per state since 30<sup>th</sup> January 2020.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -373,7 +352,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The Pie Chart shows contribution of top 5 states in India
+                    The pie chart shows contribution of top 5 states in India.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -405,7 +384,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The Pie Chart shows contribution of top 5 states in India
+                    The pie chart shows contribution of top 5 states in India.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -430,7 +409,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The Pie Chart shows contribution of top 5 states in India
+                    The pie chart shows contribution of top 5 states in India.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -461,7 +440,7 @@
 
             <div class="col-1-of-2">
                 <p class="paragraph">
-                    The Pie Chart shows contribution of top 5 states in India
+                    The pie chart shows contribution of top 5 states in India.
                 </p>
 
                 <h3 class="heading-tertiary-1 u-margin-bottom-small">
@@ -490,11 +469,11 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display: flex; align-items: center;">
             <div class="col-1-of-2">
                 <div class="footer__navigation">
                     <ul class="footer__list">
-                        <li class="footer__item"><a href="#" class="footer__link">Live Updates</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link js--scroll-to-live-updates">Live Updates</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">More Stats</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Death Rates</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Incubation</a></li>
@@ -509,7 +488,13 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        $('.js--scroll-to-live-updates').click(function() {
+            $('html, body').animate({
+                scrollTop: $('.js--section-features').offset().top
+            }, 1500);
+        });
+    </script>
 </body>
 
 </html>
