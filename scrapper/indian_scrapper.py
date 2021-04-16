@@ -122,60 +122,60 @@ def get_api_data():
 
     # ------------------------------------TESTED-DATA-FRAME-------------------------------    
     # lists for tested data
-    timestamp_list = []
-    total_samples_tested_list = []
-    total_positive_cases_list = []
-    total_individuals_tested_list = []
-    tests_per_million_list = []
-    tests_per_confirmed_cases = []
-    tests_positivity_rate = []
-    individuals_tests_per_confirmed_case = []
+#     timestamp_list = []
+#     total_samples_tested_list = []
+#     total_positive_cases_list = []
+#     total_individuals_tested_list = []
+#     tests_per_million_list = []
+#     tests_per_confirmed_cases = []
+#     tests_positivity_rate = []
+#     individuals_tests_per_confirmed_case = []
 
-    tested_data = api_data["tested"]
+#     tested_data = api_data["tested"]
 
-    for t in tested_data:
-        timestamp_list.append(t["updatetimestamp"].strip())
-        total_samples_tested_list.append(t["totalsamplestested"].strip())
-        total_positive_cases_list.append(t["totalpositivecases"].strip())
-        total_individuals_tested_list.append(t["totalindividualstested"].strip())
-        tests_per_million_list.append(t["testspermillion"].strip())
-        tests_per_confirmed_cases.append(t["testsperconfirmedcase"].strip())
-        tests_positivity_rate.append(t["testpositivityrate"][:-1].strip())
-        individuals_tests_per_confirmed_case.append(t["individualstestedperconfirmedcase"].strip())
+#     for t in tested_data:
+#         timestamp_list.append(t["updatetimestamp"].strip())
+#         total_samples_tested_list.append(t["totalsamplestested"].strip())
+#         total_positive_cases_list.append(t["totalpositivecases"].strip())
+#         total_individuals_tested_list.append(t["totalindividualstested"].strip())
+#         tests_per_million_list.append(t["testspermillion"].strip())
+#         tests_per_confirmed_cases.append(t["testsperconfirmedcase"].strip())
+#         tests_positivity_rate.append(t["testpositivityrate"][:-1].strip())
+#         individuals_tests_per_confirmed_case.append(t["individualstestedperconfirmedcase"].strip())
 
-    tested_zipped = zip(timestamp_list,
-                        total_samples_tested_list,
-                        total_positive_cases_list,
-                        total_individuals_tested_list,
-                        tests_per_million_list,
-                        tests_per_confirmed_cases,
-                        tests_positivity_rate,
-                        individuals_tests_per_confirmed_case)
+#     tested_zipped = zip(timestamp_list,
+#                         total_samples_tested_list,
+#                         total_positive_cases_list,
+#                         total_individuals_tested_list,
+#                         tests_per_million_list,
+#                         tests_per_confirmed_cases,
+#                         tests_positivity_rate,
+#                         individuals_tests_per_confirmed_case)
 
-    tested_df = pd.DataFrame(list(tested_zipped), columns=["Timestamp",
-                                                           "Total Samples Tested",
-                                                           "Total Positive Cases",
-                                                           "Total Individuals Tested", 
-                                                           "Tests Per Million",
-                                                           "Tests Per Confirmed Cases",
-                                                           "Tests Positivity Rate",
-                                                           "Individuals Tests Per Confirmed Case"])
+#     tested_df = pd.DataFrame(list(tested_zipped), columns=["Timestamp",
+#                                                            "Total Samples Tested",
+#                                                            "Total Positive Cases",
+#                                                            "Total Individuals Tested", 
+#                                                            "Tests Per Million",
+#                                                            "Tests Per Confirmed Cases",
+#                                                            "Tests Positivity Rate",
+#                                                            "Individuals Tests Per Confirmed Case"])
 
-    # tested_df.to_csv("tested_data.csv", index=False)
-    # statewise_df.to_csv("statewise_data.csv", index=False)
-    # time_series_df.to_csv("time_series.csv", index=False)
+#     # tested_df.to_csv("tested_data.csv", index=False)
+#     # statewise_df.to_csv("statewise_data.csv", index=False)
+#     # time_series_df.to_csv("time_series.csv", index=False)
 
     return {
-        "tested_df" : tested_df,
+        # "tested_df" : tested_df,
         "statewise_df" : statewise_df,
         "time_series_df" : time_series_df
     }
 
-# Complex do it later...
-# def state_districtwise_data():
-#     base_url = "https://api.covid19india.org/state_district_wise.json"
+# # Complex do it later...
+# # def state_districtwise_data():
+# #     base_url = "https://api.covid19india.org/state_district_wise.json"
 
-#     response = requests.get(base_url)
-#     api_data = json.loads(response.text)
+# #     response = requests.get(base_url)
+# #     api_data = json.loads(response.text)
 
-#     print(api_data["Maharashtra"])
+# #     print(api_data["Maharashtra"])
